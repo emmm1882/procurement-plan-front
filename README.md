@@ -1,92 +1,81 @@
 # 采购计划管理系统
 
 ## 项目说明
-本项目是一个基于Spring Boot + Vue的采购计划管理系统，实现了采购计划的增删改查、明细导入导出、附件上传等功能。
+本项目是一个基于Vue的采购计划管理系统前端，实现了采购计划的增删改查、明细导入导出、附件上传等功能。系统严格按照需求文档进行开发，确保功能完整性和规范性。
 
 ## 技术栈
-- 后端：Spring Boot 2.7.12、Mybatis-Plus、EasyExcel、MySQL8
 - 前端：Vue2、Element UI、Axios
 
 ## 环境要求
-- JDK 1.8+
-- Maven 3.6+
 - Node.js 14+
-- MySQL 8.0+
+- npm 6+
 
 ## 快速开始
 
-### 1. 数据库配置
-1. 创建数据库：
-```sql
-CREATE DATABASE procurement_plan DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-```
-
-2. 执行SQL脚本：
-- 执行 `sql/schema.sql` 创建表结构
-- 执行 `sql/data.sql` 导入测试数据
-
-### 2. 后端启动
-1. 修改数据库配置（src/main/resources/application.yml）
-2. 执行Maven打包：
-```bash
-mvn clean package
-```
-3. 运行jar包：
-```bash
-java -jar target/procurement-plan-1.0.0.jar
-```
-
-### 3. 前端启动
-1. 安装依赖：
+### 1. 安装依赖
 ```bash
 npm install
 ```
 
-2. 启动开发服务器：
+### 2. 启动开发服务器
 ```bash
 npm run serve
 ```
 
 ## 访问地址
 - 前端：http://localhost:8080
-- 后端接口文档：http://localhost:8080/api/swagger-ui/index.html
-
-## 默认账号
-- 用户名：admin
-- 密码：123456
 
 ## 功能特性
 - 采购计划管理（增删改查）
 - 计划明细导入导出
 - 附件上传下载
 - 状态流转管理
-- 权限控制
 
 ## 注意事项
-1. 确保MySQL服务已启动
-2. 文件上传大小限制为100MB
-3. 单个计划最多上传5个附件
+1. 文件上传大小限制为100MB
+2. 单个计划最多上传5个附件
 
 ## 目录结构
 ```
-├── src/       # 后端源码（SpringBoot）
-├── docs/      # 技术文档、ER图
-├── sql/       # SQL脚本（schema.sql、data.sql）
-└── README.md  # 项目说明
+procurement-plan-front/
+├── .idea/           # IDE配置
+├── docs/            # 文档
+├── src/             # 源代码
+│   ├── api/         # API请求
+│   │   └── plan.js  # 采购计划相关接口
+│   ├── views/       # 页面
+│   │   ├── plan/    # 采购计划相关页面
+│   │   │   ├── add.vue       # 新增计划
+│   │   │   ├── edit.vue      # 编辑计划
+│   │   │   ├── list.vue      # 计划列表
+│   │   │   ├── detail.vue    # 计划详情
+│   │   │   └── ImportDialog.vue # 导入对话框
+│   │   ├── PlanForm.vue      # 计划表单
+│   │   ├── PlanList.vue      # 计划列表
+│   │   └── PlanDetail.vue    # 计划详情
+│   ├── router/      # 路由
+│   │   └── index.js # 路由配置
+│   ├── store/       # Vuex状态管理
+│   │   └── index.js # 状态管理配置
+│   ├── utils/       # 工具
+│   │   └── request.js # 请求工具
+│   ├── styles/      # 样式
+│   │   └── index.scss # 全局样式
+│   ├── layout/      # 布局
+│   │   ├── Header.vue # 头部
+│   │   └── Sidebar.vue # 侧边栏
+│   ├── App.vue      # 根组件
+│   └── main.js      # 入口文件
+├── public/          # 静态资源
+├── node_modules/    # 依赖
+├── package.json     # 项目配置
+├── package-lock.json # 依赖锁定
+├── vue.config.js    # Vue配置
+└── README.md        # 项目说明
 ```
 
-## 数据库初始化
-1. 创建数据库（如：`procurement_plan`）。
-2. 执行 `sql/schema.sql` 创建表结构。
-3. 执行 `sql/data.sql` 导入测试数据。
-
-## 后端启动
-1. 进入 `src/` 目录，使用IDEA导入为Maven项目。
-2. 配置 `application.yml` 数据库连接。
-3. 运行主类启动SpringBoot服务。
-
 ## 主要功能
-- 采购计划增删改查、明细导入导出、附件上传、状态流转、逻辑删除等。
+- 采购计划增删改查、明细导入导出、附件上传、状态流转等。
 
 ## 其他
-- 详细接口文档、ER图、前端代码、技术文档见 docs/ 目录。
+- 详细接口文档、后端代码、技术文档见 `docs/` 目录。
